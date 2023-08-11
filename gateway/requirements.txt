@@ -1,0 +1,4 @@
+fastapi==0.101.0
+uvicorn==0.23.2
+grpcio==1.57.0
+grpcio-tools==1.57.0

@@ -1,0 +1,14 @@
+syntax = "proto2";
+
+package common;
+
+message Transaction {
+    required string id = 1;
+    required string operation_id = 2;
+    required string description = 3;
+}
+
+message Operation {
+    required string id = 1;
+    required string status = 2;
+}
