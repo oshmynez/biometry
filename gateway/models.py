@@ -1,14 +1,27 @@
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.orm import declarative_base
+from typing import Optional
 
-Base = declarative_base()
+from pydantic import BaseModel
 
 
-class Clients(Base):
-    __tablename__ = 'clients'
+class ClientBaseModel(BaseModel):
+    pass
 
-    id = Column(Integer, primary_key=True)
-    first_name = Column(String, nullable=False)
-    email = Column(String, nullable=False)
-    password = Column(String, nullable=False)
-    identification_number = Column(String, nullable=False)
+
+class Client(ClientBaseModel):
+    id: str
+    first_name: str
+    email: str
+    password: str
+    identification_number: str
+
+
+class ClientAuth(ClientBaseModel):
+    email: str
+    password: str
+
+
+class ClientResponse(ClientBaseModel):
+    first_name: Optional[str] = None
+    email: Optional[str] = None
+    status_code: int
+    message: str
